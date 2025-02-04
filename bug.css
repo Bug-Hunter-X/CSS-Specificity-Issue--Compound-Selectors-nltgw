@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+#container {
+  width: 500px;
+}
+
+.container {
+  width: 600px;
+}
+
+#container.container {
+  width: 700px;
+}
+```
+
+The unexpected behavior stems from the use of a compound selector (`#container.container`). While seemingly straightforward, this selector's specificity can be easily misunderstood, causing unexpected overrides.
+
+The intention might be to style a specific element with both the `id` `container` and the class `container`. However, due to CSS specificity rules, the `id` selector (`#container`) is more specific than the compound selector, hence the `width: 700px` rule is applied in this case.
